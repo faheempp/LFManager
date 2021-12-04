@@ -40,12 +40,13 @@ class LicenseeList extends StatelessWidget {
 
   Widget primaryDetails(String name, String shopname, double amount){
     return Container(
+      margin: EdgeInsets.fromLTRB(0, 2.5,0,2.5),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.bottomRight,
             end: Alignment.topLeft,
             colors: <Color>[
-              Colors.grey[500]!,
+              Colors.grey[300]!,
               Colors.grey[300]!,
             ]
         ),
