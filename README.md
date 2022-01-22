@@ -1,6 +1,6 @@
 # LF Manager
 
-LF Manager is a mobile application developed using flutter. The app is designed and developed for building owners and appartment owners to keep track of rent collection.
+LF Manager is a mobile application developed using flutter. The app is designed and developed for commercial building/appartment owners to keep track of rent collection.
 
 ## Getting Started
 
