@@ -10,7 +10,7 @@ class MyProfile extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Your Profile"),
-          backgroundColor: color3,
+          backgroundColor: color1,
           centerTitle: true,
         ),
         body: Container(
@@ -34,7 +34,7 @@ class MyProfile extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
-                        color: textcolor1,
+                        color: color1,
                       ),
                     ),
                   ],
@@ -75,7 +75,7 @@ class MyProfile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: textcolor1,
+                color: color1,
               ),
             ),
           ],

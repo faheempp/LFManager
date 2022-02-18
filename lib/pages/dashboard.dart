@@ -4,10 +4,12 @@ import 'package:lfmanager/pages/addlicensee.dart';
 import 'package:lfmanager/pages/licenseelist.dart';
 import 'package:lfmanager/pages/login.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:lfmanager/pages/home.dart';
+import 'package:lfmanager/pages/homepage.dart';
 import 'package:lfmanager/pages/myprofile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lfmanager/widgets/navbar.dart';
+
+
 class Dashboard extends StatefulWidget {
   Dashboard({Key? key}) : super(key: key);
 
@@ -30,8 +32,8 @@ class _DashboardState extends State<Dashboard> {
         currentIndex: currentIndex,
         onTap: (index)=> setState(()=> currentIndex= index),
         selectedItemColor: color1,
-        unselectedItemColor: textcolor1,
-        backgroundColor: color3,
+        unselectedItemColor: color4,
+        backgroundColor: color2,
         showUnselectedLabels: true,//false,
         elevation: 10,
         items: const [
@@ -58,5 +60,8 @@ class _DashboardState extends State<Dashboard> {
       ),
 
     );
+  }
+  void jumptoaddnew(){
+    setState(()=>currentIndex=1);
   }
 }

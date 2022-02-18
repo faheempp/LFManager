@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lfmanager/Utils/theme.dart';
 
+import 'collectionhistory.dart';
 import 'licenseelist.dart';
-
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -12,14 +12,14 @@ class Home extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(
-            color: color1,
+            color: color2,
           ),
-          backgroundColor: color3,
-          title: const Text(
+          backgroundColor: color1,
+          title:  Text(
             "Title",
             style: TextStyle(
               fontFamily: "Sacramento",
-              color: Colors.black,
+              color:  color2,
               fontWeight: FontWeight.bold,
               fontSize: 35,
             ),
@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
           ],
         ),
         body: Container(
-          color: color1,
+          color: color3,
           child: Center(
             child: Column(
               children: [
@@ -49,9 +49,9 @@ class Home extends StatelessWidget {
                           begin: Alignment.bottomRight,
                           end: Alignment.topLeft,
                           colors: <Color>[
-                            color2,
-                            color1,
-                            color2,
+                            color7,
+                            //color2,
+                            color7,
                           ]),
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: const [
@@ -61,15 +61,16 @@ class Home extends StatelessWidget {
                         )
                       ]),
                   child: ListTile(
-                    title: const Text("Afeef Ali",
+                    title:  Text("Afeef Ali",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w700,
+                          color: color1,
                         )),
-                    subtitle: const Text("Licensor",
+                    subtitle: Text("Licensor",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Colors.black,
+                          color: color1,
                           fontWeight: FontWeight.w600,
                         )),
                     trailing: CircleAvatar(
@@ -85,11 +86,11 @@ class Home extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     HomepageButton(
-                        context, Icons.supervisor_account_rounded, "Licensees"),
+                        context, Icons.supervisor_account_rounded, "Licensees",LicenseeList()),
                     Stack(
                       alignment: Alignment(1, -1.2),
                       children: [
-                        HomepageButton(context,Icons.monetization_on_outlined,"Collect"),
+                        HomepageButton(context,Icons.monetization_on_outlined,"Collect",LicenseeList()),
                         Container(
                           child:Center(
                             child: Text("99",textAlign: TextAlign.center,
@@ -113,7 +114,7 @@ class Home extends StatelessWidget {
                         ),
                       ],
                     ),
-                    HomepageButton(context, Icons.list_alt_rounded, "History"),
+                    HomepageButton(context, Icons.list_alt_rounded, "History",CollectionHistory()),
                   ],
                 ),
               ],
@@ -125,7 +126,7 @@ class Home extends StatelessWidget {
   }
 
   Widget HomepageButton(
-      BuildContext context, IconData buttonIcon, String buttonName) {
+      BuildContext context, IconData buttonIcon, String buttonName,Widget pageName) {
     return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,19 +136,19 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(.5, 5, .5, 5),
               child: Icon(
                 buttonIcon,
-                size: 50,
-                color: textcolor1,
+                size: 40,
+                color: color1,
               ),
             ),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const LicenseeList();
+                return pageName;
               }));
             },
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(10),
               backgroundColor: MaterialStateProperty.all<Color>(
-                color4,
+                color2,
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -160,7 +161,7 @@ class Home extends StatelessWidget {
             child: Text(
               buttonName,
               style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w500, color: textcolor1),
+                  fontSize: 16, fontWeight: FontWeight.w500, color: color1),
             ),
           ),
         ],
