@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lfmanager/Utils/theme.dart';
 import 'package:lfmanager/pages/dashboard.dart';
-import 'package:lfmanager/pages/signup.dart';
 
-class Login extends StatefulWidget {
+import 'login.dart';
+
+class SignUp extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
-  TextEditingController usernameController = TextEditingController();
+class _SignUpState extends State<SignUp> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -34,7 +37,7 @@ class _LoginState extends State<Login> {
                 height: MediaQuery.of(context).size.height * .03,
               ),
               const Text(
-                "Sign In",
+                "Create New Account",
                 style: TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.w500,
@@ -45,11 +48,43 @@ class _LoginState extends State<Login> {
                 height: MediaQuery.of(context).size.height * .04,
               ),
               Container(
+                //password filed container
+                padding: EdgeInsets.fromLTRB(20, 4, 20, 4),
+                child: TextFormField(
+                  //username field
+                  controller: nameController,
+                  textCapitalization: TextCapitalization.words,
+                  keyboardType: TextInputType.name,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      labelText: "Name",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                      )),
+                ),
+              ),
+              Container(
+                //password filed container
+                padding: EdgeInsets.fromLTRB(20, 4, 20, 4),
+                child: TextFormField(
+                  //username field
+                  controller: phoneController,
+                  textCapitalization: TextCapitalization.words,
+                  keyboardType: TextInputType.phone,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      labelText: "Phone",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                      )),
+                ),
+              ),
+              Container(
                 //username filed container
                 padding: EdgeInsets.fromLTRB(20, 4, 20, 4),
                 child: TextFormField(
                   //username field
-                  controller: usernameController,
+                  controller: emailController,
                   textCapitalization: TextCapitalization.words,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
@@ -75,8 +110,24 @@ class _LoginState extends State<Login> {
                       )),
                 ),
               ),
+              Container(
+                //password filed container
+                padding: EdgeInsets.fromLTRB(20, 4, 20, 4),
+                child: TextFormField(
+                  //username field
+                  controller: passwordController,
+                  textCapitalization: TextCapitalization.words,
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      labelText: "Confirm Password",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                      )),
+                ),
+              ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .04,
+                height: MediaQuery.of(context).size.height * .03,
               ),
               TextButton(//login button
                   style: ButtonStyle(
@@ -90,11 +141,11 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return Dashboard();
-                    }));
+                          return Dashboard();
+                        }));
                   },
                   child: const Text(
-                    "Sign In",
+                    "Sign Up",
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -102,52 +153,17 @@ class _LoginState extends State<Login> {
                   )
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .04,
-              ),
-              const Text(
-                "Or continue with",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 14,
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .04,
-              ),
-              Row(// signin with google apple
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                      onPressed: (){},
-                      icon: Icon(Icons.circle),
-                      label: Text("Google"),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.grey)
-                      ),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: (){},
-                    icon: Icon(Icons.circle),
-                    label: Text("Apple"),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.grey)
-                  ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .09,
+                height: MediaQuery.of(context).size.height * .03,
               ),
               Row(// signin with google apple
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                 Text("Doesn't have an account? "),
+                  Text("Already have an account? "),
                   InkWell(
-                    child:Text("Sign up",style: TextStyle(color: Colors.blue),),
+                    child:Text("Sign In",style: TextStyle(color: Colors.blue),),
                     onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUp()));
-                    },
+                      Navigator.pop(context);
+                      },
                   )
 
                 ],

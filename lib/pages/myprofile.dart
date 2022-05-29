@@ -58,7 +58,7 @@ class MyProfile extends StatelessWidget {
     return InkWell(
       onTap:(){print(optionName);},
       child: Container(
-        color: optionName == "Log out" ? color2 : Colors.white,
+        color: Colors.white,
         height: MediaQuery.of(context).size.height * .1,
         width: MediaQuery.of(context).size.width * 1,
         padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
@@ -68,6 +68,7 @@ class MyProfile extends StatelessWidget {
             Icon(
               icon,
               size: 30,
+              color: optionName=="Log out" ? color7 : color1 ,
             ),
             SizedBox(width: 20),
             Text(
@@ -75,7 +76,7 @@ class MyProfile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: color1,
+                color: optionName=="Log out" ? color7 : color1,
               ),
             ),
           ],

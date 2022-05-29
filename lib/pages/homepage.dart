@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lfmanager/Utils/theme.dart';
 
+import 'collect.dart';
 import 'collectionhistory.dart';
 import 'licenseelist.dart';
+import 'login.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -29,7 +31,13 @@ class Home extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.notifications_active,color: color7,)
+            ),
+
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder:(context){return Login();}), (route) => false);
                 },
                 icon: Icon(Icons.power_settings_new_rounded))
           ],
@@ -90,7 +98,7 @@ class Home extends StatelessWidget {
                     Stack(
                       alignment: Alignment(1, -1.2),
                       children: [
-                        HomepageButton(context,Icons.monetization_on_outlined,"Collect",LicenseeList()),
+                        HomepageButton(context,Icons.monetization_on_outlined,"Collect",Collect()),
                         Container(
                           child:Center(
                             child: Text("99",textAlign: TextAlign.center,
